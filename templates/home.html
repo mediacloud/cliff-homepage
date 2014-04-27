@@ -16,7 +16,7 @@
     Encoding these very human concept was difficult, so we measure our performance in a few ways:
     <ol>
         <li>
-        We hand-coded a set of 25 articles each from the BBC, Huffington Post, New York Times to determine what countries they were about.  CLIFF's aboutness metric matches the hand-coded results correctly 100% of the time.
+        We hand-coded a set of 25 articles each from the BBC, Huffington Post, New York Times to determine what countries they were about.  CLIFF's aboutness metric matches the hand-coded results correctly 95% of the time.
         </li>
         <li>
         We pulled thousands of articles from the <a href="http://catalog.ldc.upenn.edu/LDC2008T19">New York Times Annotated corpus</a> and tested against the "locations" field.  We exactly match the NYT list of locations around 85% of the time.  The countries that we think the article is about is in their list of locations 90% of the time.
@@ -40,11 +40,17 @@
   </div>
   <div class="col-sm-6">
     <h3>Try it now!</h3>
-    <form action="/process" method="POST">
-        <textarea name="text" class="form-control" rows="3">Some clever text mentioning places like India, and people like Einstein.  Perhaps also we want mention an organization like the United Nations?</textarea>
-        <button type="submit" class="btn btn-default">Try it!</button>
+    <form id="tryItForm" action="/process" method="POST">
+        <textarea maxlength="250" id="tryItText" name="text" class="form-control" rows="3">Some clever text mentioning places like India, and people like Einstein.  Perhaps also we want mention an organization like the United Nations?</textarea>
+        <button id="tryItButton" type="button" class="btn btn-primary">Try it!</button>
     </form>
+    <h4>Results</h4>
+    <pre id="cliffResults" class="code"></pre>
   </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/cliff.js"></script>
 {% endblock %}
