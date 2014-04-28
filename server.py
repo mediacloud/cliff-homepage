@@ -3,6 +3,8 @@ from flask import Flask, render_template, request
 from flask.json import jsonify 
 from mediameter.cliff import Cliff
 
+MAX_CHARS = 250 	# limit the amount of text users can send in
+
 app = Flask(__name__)
 
 # setup logging
@@ -14,16 +16,18 @@ log.info("----------------------------------------------------------------------
 current_dir = os.path.dirname(os.path.abspath(__file__))
 config = ConfigParser.ConfigParser()
 config.read(current_dir+'/cliff.config')
-cliff = Cliff( config.get('cliff','host'),config.get('cliff','port') )
+cliff = Cliff( config.get('cliff','host'), config.get('cliff','port') )
 
+# render the homepage
 @app.route("/")
 def index():
     return render_template('home.html')
 
+# return json results from CLIFF 
 @app.route("/process",methods=['POST'])
 def geoparse():
     text = request.form['text']
-    results = cliff.query(text)
+    results = cliff.query(text[0:MAX_CHARS])
     return jsonify(results)
 
 if __name__ == "__main__":

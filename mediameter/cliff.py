@@ -3,6 +3,7 @@ import requests
 
 class Cliff():
     '''
+    Make requests to a cliff server
     '''
 
     PATH_TO_CLIFF = "/CLIFF/parse/text"
