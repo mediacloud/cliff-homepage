@@ -5,7 +5,7 @@ class Cliff():
     '''
     '''
 
-    PATH_TO_CLIFF = "/parseText"
+    PATH_TO_CLIFF = "/CLIFF/parse/text"
 
     def __init__(self,host,port):
         self._log = logging.getLogger('cliff')
