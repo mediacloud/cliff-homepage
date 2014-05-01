@@ -6,20 +6,24 @@
   <div class="col-sm-6">
     <h3>The Who and Where of the News</h3>
     <p>
-    MediaMeter tries to get at the "who" and the "where" of the news.  To do this, we need a way to take in news articles and pull out who is mentioned, and what places are written about.  CLIFF is our answer to this - a Java-based web service that receives raw text and returns JSON describing the people, organizations and places mentioned, and what places we think the text is "about".  <a href="https://github.com/c4fcm/CLIFF">CLIFF is open source and hosted on GitHub</a>.
+    MediaMeter tries to get at the "who" and the "where" of the news.  To do this, we need a way to take in news articles and pull out who is mentioned, and what places are written about.  CLIFF is our answer to this - a Java-based web service that receives raw English text and returns JSON describing the people, organizations and places mentioned, and what places we think the text is "about".  
+    <a href="https://github.com/c4fcm/CLIFF">CLIFF is open source and hosted on GitHub</a>.
     </p>
     <h3>Geoparsing Accuracy</h3>
     <p>
-    Geoparsing is hard.  We started by building on top of CLAVIN because it <a href="http://civic.mit.edu/blog/kanarinka/big-data-news-and-geography-research-update">performed best in our testing</a>.  We rely on Stanford's NER for the precision and recall pieces of the geoparsing puzzle.  For geographic disambiguation, we wrote out own set of heuristics tuned to countries and cities.  On top of that we added a simple definition of "aboutness" to determine which countries an article is actually about.
+    Geoparsing is hard.  We started by building on top of CLAVIN because it <a href="http://civic.mit.edu/blog/kanarinka/big-data-news-and-geography-research-update">performed best in our testing</a>.  We rely on Stanford's NER for the precision and recall pieces of the geoparsing puzzle.  For geographic disambiguation, we wrote out own set of heuristics tuned to countries and cities.  On top of that we added a simple definition of "aboutness" to determine which countries and cities an article is actually about (as opposed to all of them that are mentioned).
     </p>
     <p>
-    Encoding these very human concept was difficult, so we measure our performance in a few ways:
+    Encoding these very human concept was difficult, and so is measuring how well we are doing.  Here are a few ways we check our results:
     <ol>
         <li>
         We hand-coded a set of 25 articles each from the BBC, Huffington Post, New York Times to determine what countries they were about.  CLIFF's aboutness metric matches the hand-coded results correctly 95% of the time.
         </li>
         <li>
-        We pulled thousands of articles from the <a href="http://catalog.ldc.upenn.edu/LDC2008T19">New York Times Annotated corpus</a> and tested against the "locations" field.  We exactly match the NYT list of locations around 85% of the time.  The countries that we think the article is about is in their list of locations 90% of the time.
+        We pulled thousands of articles from the <a href="http://catalog.ldc.upenn.edu/LDC2008T19">New York Times Annotated corpus</a> and tested against the "locations" tag.  At the basic level of places mentioned, the list of countries CLIFF finds has all the countries on their "locations" list 85% of the time.  Looking at our concept of "aboutness", the list of coutries CLIFF thinks the article is about are on their list of locations 90% of the time.
+        </li>
+        <li>
+        We pulled thousands of articles from the <a href="http://trec.nist.gov/data/reuters/reuters.html">Reuters RCV1 corpus</a> and tested against the "codes['bip:countries:1.0']" tag.  For places mentioned, the list of countries CLIFF finds has all the countries Reuters coded 94% of the time.  For "aboutness", the list of countries CLIFF thinks the article is about are on the Reuters list 91% of the time.
         </li>
         <li>
         We created a set of special cases we wanted to make sure we processed correctly.  For instance, we want to choose the <i>city</i> "Paris" over the <i>administrative district</i> that is also called "Paris".
