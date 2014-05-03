@@ -1,6 +1,5 @@
 import os, sys, time, logging, ConfigParser, json
 from flask import Flask, render_template, request
-from flask.json import jsonify 
 from mediameter.cliff import Cliff
 
 MAX_CHARS = 250 	# limit the amount of text users can send in
@@ -28,7 +27,7 @@ def index():
 def geoparse():
     text = request.form['text']
     results = cliff.query(text[0:MAX_CHARS])
-    return jsonify(results)
+    return json.dumps(results)
 
 if __name__ == "__main__":
     app.debug = True
