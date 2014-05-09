@@ -14,7 +14,7 @@
     Geoparsing accuracy is hard to measure.  We started by building on top of CLAVIN because it <a href="http://civic.mit.edu/blog/kanarinka/big-data-news-and-geography-research-update">performed best in our testing</a>.  We rely on Stanford's NER for the precision and recall pieces of the geoparsing puzzle.  For geographic disambiguation, we wrote out own set of heuristics tuned to countries and cities.  On top of that we added a simple definition of "aboutness" to determine which countries and cities an article is actually about (as opposed to all of them that are mentioned).
     </p>
     <p>
-    Encoding these very human concept was difficult, and so is measuring how well we are doing.  Here are a few ways we check our results:
+    Encoding these very human concepts was difficult, and so is measuring how well we are doing.  Here are a few ways we check our results:
     <ol>
         <li>
         We hand-coded a set of 25 articles each from the BBC, Huffington Post, New York Times to determine what countries they were about.  CLIFF's aboutness metric matches the hand-coded results correctly 95% of the time.
