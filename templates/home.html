@@ -9,6 +9,17 @@
     MediaMeter tries to get at the "who" and the "where" of the news.  To do this, we need a way to take in news articles and pull out who is mentioned, and what places are written about.  CLIFF is our answer to this - a Java-based web service that receives raw English text and returns JSON describing the people, organizations and places mentioned, and what places we think the text is "about".  
     <a href="https://github.com/c4fcm/CLIFF">CLIFF is open source and hosted on GitHub</a>.
     </p>
+    <h3>Credits</h3>
+    <p>CLIFF is built on top of a number of other tools:
+    <ul>
+        <li>We started off by extending <a href="http://clavin.bericotechnologies.com/">Berico Technologies' CLAVIN geoparsing tool</a>.  In fact, this is why we called our tool <a href="http://en.wikipedia.org/wiki/Cliff_Clavin">CLIFF</a>!</li>
+        <li>We rely on <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford's Named Entity Recognizer</a> to extract strings that might be people or places from articles.</li>
+        <li>We pull places from the <a href="http://www.geonames.org/">GeoNames gazeteer</a>.</li>
+    </ul>
+    </p>
+    <p>
+    CLIFF is primarily developed by Rahul Bhargava and Catherine D'Ignazio at the <a href="http://civic.mit.edu/">MIT Center for Civic Media</a>.
+    </p>
     <h3>Geoparsing Accuracy</h3>
     <p>
     Geoparsing accuracy is hard to measure.  We started by building on top of CLAVIN because it <a href="http://civic.mit.edu/blog/kanarinka/big-data-news-and-geography-research-update">performed best in our testing</a>.  We rely on Stanford's NER for the precision and recall pieces of the geoparsing puzzle.  For geographic disambiguation, we wrote out own set of heuristics tuned to countries and cities.  On top of that we added a simple definition of "aboutness" to determine which countries and cities an article is actually about (as opposed to all of them that are mentioned).
@@ -29,17 +40,6 @@
         We created a set of special cases we wanted to make sure we processed correctly.  For instance, we want to choose the <i>city</i> "Paris" over the <i>administrative district</i> that is also called "Paris".
         </li>
     </ol>
-    </p>
-    <h3>Credits</h3>
-    <p>
-    CLIFF is primarily developed by Rahul Bhargava and Catherine D'Ignazio at the <a href="http://civic.mit.edu/">MIT Center for Civic Media</a>.
-    </p>
-    <p>CLIFF is built on top of a number of other tools:
-    <ul>
-        <li>We started off by extending <a href="http://clavin.bericotechnologies.com/">Berico Technologies' CLAVIN geoparsing tool</a>.  In fact, this is why we called our tool <a href="http://en.wikipedia.org/wiki/Cliff_Clavin">CLIFF</a>!</li>
-        <li>We rely on <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford's Named Entity Recognizer</a> to extract strings that might be people or places from articles.</li>
-        <li>We pull places from the <a href="http://www.geonames.org/">GeoNames gazeteer</a>.</li>
-    </ul>
     </p>
   </div>
   <div class="col-sm-6">
