@@ -46,6 +46,7 @@
     <h3>Try it now!</h3>
     <form id="tryItForm" action="/process" method="POST">
         <textarea maxlength="250" id="tryItText" name="text" class="form-control" rows="3">Some clever text mentioning places like India, and people like Einstein.  Perhaps also we want mention an organization like the United Nations?</textarea>
+        <small><i>This demo is limited to 250 characters</small></i><br />
         <button id="tryItButton" type="button" class="btn btn-primary">Try it!</button>
     </form>
     <h4>Results</h4>
@@ -57,4 +58,9 @@
 
 {% block scripts %}
 <script src="/static/js/cliff.js"></script>
+<script>
+$(function(){
+    $("#tryItButton").click();
+});
+</script>
 {% endblock %}

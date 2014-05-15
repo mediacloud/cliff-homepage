@@ -4,6 +4,7 @@ $(function(){
     // disable UI
     $( "#tryItForm textarea" ).prop( "disabled", true );
     $( "#tryItForm button" ).prop( "disabled", true );
+    $( "#cliffResults").html("Loading...");
     // submit request
     $.ajax({
       url:'/process',
