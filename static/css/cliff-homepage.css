@@ -6,3 +6,8 @@
 button {
     margin-top: 10px;
 }
+
+.intro {
+	margin-top: 0.5em;
+	font-size: 150%;
+}
