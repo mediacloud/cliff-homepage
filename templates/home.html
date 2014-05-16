@@ -5,11 +5,12 @@
 <div class="row">
   <div class="col-sm-6">
     <p class="intro"> 
-    MediaMeter tries to get at the "who" and the "where" of the news.  To do this, we need a way to take in news articles and pull out who is mentioned, and what places are written about.  CLIFF is our answer to this - a Java-based web service that receives raw English text and returns JSON describing the people, organizations and places mentioned, and what places we think the text is "about".  
-    <a href="https://github.com/c4fcm/CLIFF">CLIFF is open source and hosted on GitHub</a>.
+    CLIFF parses news articles and pulls out people, organizations and places mentioned.  A number of tools do this, so why did we create CLIFF? We've built on those tools to add disambiguation tailored to the ways news articles are written, and a concept of "aboutness" that tries to get at what place an article is really about (as opposed to all the places it mentions).  We wrote CLIFF to help drive our <a href="http://mediameter.org/">MediaMeter</a> suite of tools, but are sharing it in hopes that others find it useful.
     </p>
     <h3>Credits</h3>
-    <p>CLIFF is built on top of a number of other tools:
+    <p>CLIFF is a Java-based web service that receives raw English text and returns JSON.
+    <a href="https://github.com/c4fcm/CLIFF">CLIFF is open source and hosted on GitHub</a>.
+    We've built on top of a number of other tools:
     <ul>
         <li>We started off by extending <a href="http://clavin.bericotechnologies.com/">Berico Technologies' CLAVIN geoparsing tool</a>.  In fact, this is why we called our tool CLIFF! (<a href="http://en.wikipedia.org/wiki/Cliff_Clavin">get the joke?</a>)</li>
         <li>We rely on <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford's Named Entity Recognizer</a> to extract strings that might be people or places from articles.</li>
