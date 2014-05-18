@@ -17,8 +17,10 @@ class Cliff():
         self._url = host+":"+str(port)+Cliff.PATH_TO_CLIFF
         self._log.info("Conneced to CLIFF at "+self._url)
 
-    def query(self,text):
-        payload = {'q':text}
+    def query(self,text,demonyms=False):
+        replaceAllDemonyms = "true" if demonyms else "false"
+        payload = {'q':text,'replaceAllDemonyms':replaceAllDemonyms}
+        self._log.error("Querying cliff with demonyms="+str(demonyms))
         try:
             r = requests.post(self._url, data=payload)
             self._log.debug('CLIFF says '+r.content)

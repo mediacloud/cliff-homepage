@@ -26,7 +26,8 @@ def index():
 @app.route("/process",methods=['POST'])
 def geoparse():
     text = request.form['text']
-    results = cliff.query(text[0:MAX_CHARS])
+    demonyms = request.form['demonyms']=='true'
+    results = cliff.query(text[0:MAX_CHARS],demonyms)
     return json.dumps(results)
 
 if __name__ == "__main__":
