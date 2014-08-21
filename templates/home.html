@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-sm-6">
     <p class="intro"> 
-    CLIFF parses news articles and pulls out people, organizations and places mentioned.  A number of tools do this, so why did we create CLIFF? We've built on those tools to add disambiguation tailored to the ways news articles are written, and a concept of "aboutness" that tries to get at what place an article is really about (as opposed to all the places it mentions).  We wrote CLIFF to help drive our <a href="http://mediameter.org/">MediaMeter</a> suite of tools, but are sharing it in hopes that others find it useful.
+    CLIFF parses news articles and pulls out people, organizations and places mentioned.  A number of tools do this, so why did we create CLIFF? We've built on those tools to add disambiguation tailored to the ways news articles are written, and a concept of "focus" that tries to get at what place an article is really about (as opposed to all the places it mentions).  We wrote CLIFF to help drive our <a href="http://mediameter.org/">MediaMeter</a> suite of tools, but are sharing it in hopes that others find it useful.
     </p>
     <h3>Credits</h3>
     <p>CLIFF is a Java-based web service that receives raw English text and returns JSON.
@@ -22,19 +22,19 @@
     </p>
     <h3>Geoparsing Accuracy</h3>
     <p>
-    Geoparsing accuracy is hard to measure.  We started by building on top of CLAVIN because it <a href="http://civic.mit.edu/blog/kanarinka/big-data-news-and-geography-research-update">performed best in our testing</a>.  We rely on Stanford's NER for the precision and recall pieces of the geoparsing puzzle.  For geographic disambiguation, we wrote our own set of heuristics tuned to countries and cities.  On top of that we added a simple definition of "aboutness" to determine which countries and cities an article is actually about (as opposed to all of them that are mentioned).
+    Geoparsing accuracy is hard to measure.  We started by building on top of CLAVIN because it <a href="http://civic.mit.edu/blog/kanarinka/big-data-news-and-geography-research-update">performed best in our testing</a>.  We rely on Stanford's NER for the precision and recall pieces of the geoparsing puzzle.  For geographic disambiguation, we wrote our own set of heuristics tuned to countries and cities.  On top of that we added a simple definition of "focus" to determine which countries and cities an article is actually about (as opposed to all of them that are mentioned).
     </p>
     <p>
     Encoding these very human concepts was difficult, and so is measuring how well we are doing.  Here are a few ways we check our results:
     <ol>
         <li>
-        We hand-coded a set of 25 articles each from the BBC, Huffington Post, New York Times to determine what countries they were about.  CLIFF's aboutness metric matches the hand-coded results correctly 95% of the time.
+        We hand-coded a set of 25 articles each from the BBC, Huffington Post, New York Times to determine what countries they were about.  CLIFF's focus metric matches the hand-coded results correctly 95% of the time.
         </li>
         <li>
-        We pulled thousands of articles from the <a href="http://catalog.ldc.upenn.edu/LDC2008T19">New York Times Annotated corpus</a> and tested against the "locations" tag.  At the basic level of places mentioned, the list of countries CLIFF finds has all the countries on their "locations" list 85% of the time.  Looking at our concept of "aboutness", the list of coutries CLIFF thinks the article is about are on their list of locations 90% of the time.
+        We pulled thousands of articles from the <a href="http://catalog.ldc.upenn.edu/LDC2008T19">New York Times Annotated corpus</a> and tested against the "locations" tag.  At the basic level of places mentioned, the list of countries CLIFF finds has all the countries on their "locations" list 85% of the time.  Looking at our concept of "focus", the list of coutries CLIFF thinks the article is about are on their list of locations 90% of the time.
         </li>
         <li>
-        We pulled thousands of articles from the <a href="http://trec.nist.gov/data/reuters/reuters.html">Reuters RCV1 corpus</a> and tested against the "codes['bip:countries:1.0']" tag.  For places mentioned, the list of countries CLIFF finds has all the countries Reuters coded 94% of the time.  For "aboutness", the list of countries CLIFF thinks the article is about are on the Reuters list 91% of the time.
+        We pulled thousands of articles from the <a href="http://trec.nist.gov/data/reuters/reuters.html">Reuters RCV1 corpus</a> and tested against the "codes['bip:countries:1.0']" tag.  For places mentioned, the list of countries CLIFF finds has all the countries Reuters coded 94% of the time.  For "focus", the list of countries CLIFF thinks the article is about are on the Reuters list 91% of the time.
         </li>
         <li>
         We created a set of special cases we wanted to make sure we processed correctly.  For instance, we want to choose the <i>city</i> "Paris" over the <i>administrative district</i> that is also called "Paris".
