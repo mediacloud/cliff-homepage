@@ -27,7 +27,7 @@ def index():
 def geoparse():
     text = request.form['text']
     demonyms = request.form['demonyms']=='true'
-    results = cliff.query(text[0:MAX_CHARS],demonyms)
+    results = cliff.parseText(text[0:MAX_CHARS],demonyms)
     return json.dumps(results)
 
 if __name__ == "__main__":
