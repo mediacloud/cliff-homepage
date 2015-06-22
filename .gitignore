@@ -1,2 +1,4 @@
 *.pyc
 cliff.config
+venv
+
