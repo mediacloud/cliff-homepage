@@ -3,10 +3,10 @@
 
 <head>
   <title>CLIFF: Entity Extraction and Geoparsing for News Articles</title>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,700" type="text/css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro" type="text/css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,700" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" type="text/css">
   <link rel="stylesheet" type="text/css" href="/static/css/mediacloud.css"/>
   <link rel="stylesheet" type="text/css" href="/static/css/cliff-homepage.css"/>
 </head>
@@ -37,7 +37,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <a href="http://civic.mit.edu/"><img src="/static/img/civic-logo.png" width=250 alt="MIT Center for Civic Media"></a>
+        <a href="https://civic.mit.edu/"><img src="/static/img/civic-logo.png" width=250 alt="MIT Center for Civic Media"></a>
       </div>
       <div class="col-sm-4">
       </div>
@@ -47,24 +47,19 @@
   </div>
 </div>
 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 {% block scripts %}{% endblock %}
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["trackPageView"]);
-  _paq.push(["enableLinkTracking"]);
 
-  (function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.vojo.co/";
-    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-    _paq.push(["setSiteId", "5"]);
-    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-  })();
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60744513-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-60744513-13');
 </script>
-<!-- End Piwik Code -->
 
 </body>
 
