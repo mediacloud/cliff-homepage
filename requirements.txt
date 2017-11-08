@@ -1,2 +1,3 @@
-flask
-mediameter-cliff
+flask==0.12.2
+mediacloud-cliff==2.0.2
+gunicorn==19.7.1

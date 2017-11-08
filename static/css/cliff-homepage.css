@@ -8,6 +8,10 @@ button {
 }
 
 .intro {
-	margin-top: 0.5em;
+	margin-top: 18px;
 	font-size: 150%;
+}
+
+h2 {
+    margin-bottom: 30px;
 }

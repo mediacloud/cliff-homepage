@@ -28,23 +28,31 @@ svg {
     background: #fff;
 }
 
+a {
+    color: #1E7E77;
+}
+
 /* Brand Style ****************************************************************/
 
 .brand-toolbar {
-    background: #e1650c;
+    background: #1E7E77;
     color: #fff;
 }
 .branding {
-    background: #e14c11;
+    background: #1E7E77;
     color: #fff;
 }
 .app-toolbar {
-    background: #813f1f;
+    background: #1E7E77;
     color: #e14c11;
 }
 .btn-primary {
-    background: #e14c11;
+    background: #1E7E77;
     color: #fff;
+}
+
+img.logo {
+    margin-right: 10px;
 }
 
 /* Layout *********************************************************************/
