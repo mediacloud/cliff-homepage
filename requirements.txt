@@ -1,4 +1,4 @@
 flask==1.0.2
-mediacloud-cliff==2.0.2
+mediacloud-cliff==2.1.0
 gunicorn==19.9.0
 
