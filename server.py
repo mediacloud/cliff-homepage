@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 
 from cliff.api import Cliff
 
-VERSION = "2.2.0"
+VERSION = "2.3.0"
 
 MAX_CHARS = 250 	# limit the amount of text users can send in
 
