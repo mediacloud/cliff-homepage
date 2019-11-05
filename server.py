@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 
 from cliff.api import Cliff
 
-VERSION = "2.3.0"
+VERSION = "2.6.0"
 
 MAX_CHARS = 250 	# limit the amount of text users can send in
 
@@ -33,8 +33,9 @@ def index():
 @app.route("/process",methods=['POST'])
 def geoparse():
     text = request.form['text']
+    language = request.form['language']
     demonyms = request.form['demonyms'] == 'true'
-    results = cliff.parse_text(text[0:MAX_CHARS], demonyms)
+    results = cliff.parse_text(text[0:MAX_CHARS], demonyms, language)
     return json.dumps(results)
 
 

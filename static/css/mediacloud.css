@@ -148,14 +148,12 @@ input.form-control, select.form-control, textarea.form-control {
 }
 .form-group label {
     text-transform: uppercase;
-    font-weight: 300;
+    font-size: 12px;
 }
 .label {
     display: block;
     float: left;
     border-radius: 0;
-    font-size: small;
-    font-weight: 300;
     box-shadow: 2px 2px 2px 0px #b4b4b4;
     font-size: 14px;
     padding: 6px 12px 8px 12px;

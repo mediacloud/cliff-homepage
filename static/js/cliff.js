@@ -8,7 +8,11 @@ $(function(){
     // submit request
     $.ajax({
       url:'/process',
-      data: { 'text': $('#tryItText').val(), 'demonyms': $('#tryItDemonyms').is(':checked') },
+      data: {
+        'text': $('#tryItText').val(),
+        'demonyms': $('#tryItDemonyms').is(':checked'),
+        'language': $('#tryItLanguage').val()
+      },
       type: "POST",
       dataType : "json",
       // print out JSON results nicely
