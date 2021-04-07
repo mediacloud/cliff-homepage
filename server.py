@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 
 from cliff.api import Cliff
 
-VERSION = "2.6.0"
+VERSION = "2.6.1"
 
 MAX_CHARS = 250 	# limit the amount of text users can send in
 
@@ -21,6 +21,7 @@ app_config = config.get_default_config()
 # set up the api client we will use
 CLIFF_URL = app_config.get('CLIFF_URL')
 cliff = Cliff(CLIFF_URL)
+cliff.PARSE_TEXT_PATH = "/cliff/parse/text"   # instead of "/cliff-2.6.1/parse/text"
 
 
 # render the homepage
