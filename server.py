@@ -1,6 +1,7 @@
 import logging
 import json
-import config
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 
 from cliff.api import Cliff
@@ -9,6 +10,8 @@ VERSION = "2.6.1"
 
 MAX_CHARS = 250 	# limit the amount of text users can send in
 
+load_dotenv()  # set environment variables from .env file if available
+
 app = Flask(__name__)
 
 # setup logging
@@ -16,10 +19,9 @@ logging.basicConfig(level=logging.WARN)
 log = logging.getLogger(__file__)
 log.info("---------------------------------------------------------------------------")
 
-app_config = config.get_default_config()
 
 # set up the api client we will use
-CLIFF_URL = app_config.get('CLIFF_URL')
+CLIFF_URL = os.environ.get("CLIFF_URL", "http://localhost:8080")
 cliff = Cliff(CLIFF_URL)
 cliff.PARSE_TEXT_PATH = "/cliff/parse/text"   # instead of "/cliff-2.6.1/parse/text"
 
@@ -31,7 +33,7 @@ def index():
 
 
 # return json results from CLIFF 
-@app.route("/process",methods=['POST'])
+@app.route("/process", methods=['POST'])
 def geoparse():
     text = request.form['text']
     language = request.form['language']

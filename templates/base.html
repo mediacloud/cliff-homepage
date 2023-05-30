@@ -17,7 +17,7 @@
   <div class="branding">
     <div class="container">
       <h1>
-        <img src="/static/img/mediacloud-logo-white-2x.png" alt="Media Cloud" width=64 class="logo">
+        <img src="/static/img/mediacloud-logo-white-2x.png" alt="Media Cloud" width="100" class="logo">
         <strong>CLIFF-CLAVIN</strong>
       </h1>
     </div>
@@ -29,20 +29,19 @@
     {% block content %}
     {{ content |safe }}
     {% endblock %}
-    <br />
   </div>
 </div>
 
 <div class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        <a href="https://civic.mit.edu/"><img src="/static/img/civic-logo.png" width=250 alt="MIT Center for Civic Media"></a>
+      <div class="col-md-6">
+        <a href="https://mediacloud.org/"><img src="/static/img/mediacloud-logo-black-2x.png" height="100" alt="Media Cloud Project"></a>
+        <a href="https://dataculture.northeastern.edu"><img src="/static/img/dcg-logo.png" height="100" alt="Northeastern Data Culture Group"></a>
+        <a href="https://dataplusfeminism.mit.edu/"><img src="/static/img/dflab-logo.png" height="100" alt="MIT Data + Feminism Lab"></a>
       </div>
-      <div class="col-sm-4">
-      </div>
-      <div class="col-sm-4">
-          <small>v{{version}}</small>
+      <div class="col-md-6">
+        <small>v{{version}}</small>
       </div>
     </div>
   </div>

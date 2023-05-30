@@ -2,3 +2,4 @@
 cliff.config
 venv
 .idea
+.env
