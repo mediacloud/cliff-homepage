@@ -23,7 +23,6 @@ log.info("----------------------------------------------------------------------
 # set up the api client we will use
 CLIFF_URL = os.environ.get("CLIFF_URL", "http://localhost:8080")
 cliff = Cliff(CLIFF_URL)
-cliff.PARSE_TEXT_PATH = "/cliff/parse/text"   # instead of "/cliff-2.6.1/parse/text"
 
 
 # render the homepage
